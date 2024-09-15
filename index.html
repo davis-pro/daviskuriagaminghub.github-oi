@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Game Hub brings you the latest games, reviews, and updates from the gaming world.">
+    <meta name="keywords" content="games, video games, gaming, reviews, streamers">
+    <meta name="author" content="Game Hub">
+    <title>Game Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #121212;
+            color: #f1f1f1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: #1a1a1a;
+            padding: 20px 0;
+            text-align: center;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        header .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff9800;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #f1f1f1;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-image: url('https://example.com/hero-image.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .hero .content {
+            max-width: 50%;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            font-size: 48px;
+            color: #ff9800;
+            animation: bounce 2s ease infinite;
+        }
+
+        .hero form input, .hero form button {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero form button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .hero form button:hover {
+            background-color: #e68900;
+            transform: scale(1.05);
+        }
+
+        .video-section {
+            width: 40%;
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ff9800;
+            border-radius: 5px;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 48px;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .video-container.playing .play-button {
+            display: none;
+        }
+
+        .game-categories, .top-games, .streamers, .testimonials, .contact {
+            padding: 50px 20px;
+            background: #181818;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #ff9800;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .category-grid, .game-grid, .streamer-grid, .testimonial-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            animation: popIn 1s ease-in-out;
+        }
+
+        .category, .game, .streamer, .testimonial {
+            background: #282828;
+            color: #f1f1f1;
+            padding: 20px;
+            margin: 10px;
+            width: calc(33% - 20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            animation: popIn 1.5s ease-in-out;
+            position: relative;
+        }
+
+        .category img, .game img, .streamer img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .category:hover, .game:hover, .streamer:hover, .testimonial:hover {
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .footer-links a {
+            color: #ff9800;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e68900;
+            text-decoration: underline;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Game Hub</div>
+        <nav>
+            <ul>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#top-games">Top Games</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1>Discover the World of Gaming</h1>
+            <p>Get the latest updates, reviews, and news on your favorite games.</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Subscribe</button>
+                <button type="play">play</button>
+            </form>
+        </div>        
+            <div class="video-section">
+                <div class="video-container">
+                    <!-- Embedded YouTube video using iframe -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2G13WEfuXpY" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+        
+        </div>
+    </section>
+
+    <section id="categories" class="game-categories">
+        <h2>Popular Game Categories</h2>
+        <div class="category-grid">
+            <div class="category">
+                <img src="https://i.pinimg.com/236x/02/34/74/0234744131547b107430e60127ead5cd.jpg" alt="Action Games">
+                Action
+            </div>
+            <div class="category">
+                <img src="https://i.pinimg.com/236x/f5/a8/68/f5a86887a0ae9dd54470b25d2a0ba52f.jpg" alt="Adventure Games">
+                Adventure
+            </div>
+            <div class="category">
+                <img src="https://i.pinimg.com/236x/2f/a7/ad/2fa7ad1191396d3df9c01006a01ca43a.jpg" alt="RPG Games">
+                RPG
+            </div>
+            <div class="category">
+                <img src="https://i.pinimg.com/474x/04/82/79/0482797d2253f92f308169898f4e161b.jpg" alt="Strategy Games">
+                Strategy
+            </div>
+            <div class="category">
+                <img src="https://i.pinimg.com/236x/b6/68/a1/b668a1212ac336e44af081f76b7fe239.jpg" alt="Sports Games">
+                Sports
+            </div>
+            <div class="category">
+                <img src="https://i.pinimg.com/236x/eb/86/6e/eb866e609698041e48a35fcc4f7837b0.jpg" alt="Indie Games">
+                Indie
+            </div>
+        </div>
+    </section>
+
+    <section id="top-games" class="top-games">
+        <h2>Top Trending Games</h2>
+        <div class="game-grid">
+            <div class="game">
+                <img src="https://i.pinimg.com/236x/83/76/e2/8376e2883bf7ccb30ceebb5b901a9a97.jpg" alt="Game 1">
+                Call of duty
+            </div>
+            <div class="game">
+                <img src="https://i.pinimg.com/474x/29/58/dd/2958dd849f8f7de64224fc37d80f8e6a.jpg" alt="Game 2">
+                Minecraft 
+            </div>
+            <div class="game">
+                <img src="https://i.pinimg.com/236x/a3/56/33/a35633f4678e1475f3277d25f4733259.jpg" alt="Game 3">
+                Freefire
+            </div>
+            <div class="game">
+                <img src="https://i.pinimg.com/236x/37/30/f8/3730f81cf1d575befd8fc506f74d89a8.jpg" alt="Game 4">
+                NFS
+            </div>
+        </div>
+    </section>
+
+    <section class="streamers">
+        <h2>Top Streamers</h2>
+        <div class="streamer-grid">
+            <div class="streamer">
+                <img src="https://i.pinimg.com/236x/7e/e8/c4/7ee8c4361736ed806711ae99f7d6762c.jpg" alt="fortnite">
+                fornite
+            </div>
+            <div class="streamer">
+                <img src="https://i.pinimg.com/236x/44/f4/08/44f40842ceae75263b2d20080a73b959.jpg" alt="blur">
+                blur
+            </div>
+            <div class="streamer">
+                <img src="https://i.pinimg.com/236x/5e/6a/cf/5e6acf9e03b48f5ed16ac41ed129de53.jpg" alt="gta v">
+                gt v
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Gamers Are Saying</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"Awesome platform for finding new games!"</p>
+                <span>- Alex</span>
+            </div>
+            <div class="testimonial">
+                <p>"Love the reviews and updates."</p>
+                <span>- Sam</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Stay Updated with the Latest Game News</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-logo">Game Hub</div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+        <div class="footer-copyright">
+            &copy; 2024 Game Hub. All rights reserved.
+        </div>
+    </footer>
+
+   
+</body>
+</html>
